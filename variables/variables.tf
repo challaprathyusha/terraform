@@ -1,3 +1,11 @@
+#variables prefernce
+# 1 commandline(-var or -var-file)
+# 2 *.auto.tfvars or *.auto.tfvars.json
+# 3 *.tfvars.json
+# 4 *.tfvars 
+# 5 Environment variables
+# 6 Variable default value
+
 # variables declaration for dbinstance
 variable "ami_id" {
     type =  string
@@ -12,8 +20,9 @@ variable "instance_type" {
 variable "db_tags" {
     type = map(string)
     default = {
-      name =  "db"
-      created =   "terraform"
+      Name =  "db"
+      project   = "Expenses"
+      createdby =   "terraform"
       environment   =   "dev"
     }
 }
@@ -53,7 +62,9 @@ variable "sg_tags" {
     type = map(string)
     default = {
       Name = "allow_ssh"
-      Created =   "terraform"
+      project   = "Expenses"
+      createdby =   "terraform"
+      environment   =   "dev"
     }
   
 }
