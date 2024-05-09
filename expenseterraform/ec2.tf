@@ -1,16 +1,17 @@
 #  ec2 instance creation
 resource "aws_instance" "expense" {
-    #count = 3
-    count = length(var.instance_name)
+    count = length(var.instance_names)
     ami =   var.ami_id
-    instance_type = var.instance_type
+    instance_type = var.instance_names[count.index] == "db" ? "t3.micro" : var.instance_type
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
-    tags = {
-        Name =  var.instance_name[count.index]
-        environment = "DEV"
-        project = "Expense"
-    }
+    tags = merge(
+        var.common_tags,
+        {
+         Name =  var.instance_names[count.index]
+         Module = var.instance_names[count.index]
+        }
+    )
 }
 
 #  security group creation for default vpc in us-east-1 region 
