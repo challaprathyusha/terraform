@@ -15,7 +15,7 @@ variable "instance_type" {
 }
 
 variable "common_tags" {
-    type = map(string)
+    type = map
     default = {
       project   = "Expenses"
       terraform = "True"
@@ -55,12 +55,25 @@ variable "cidr_range" {
 }
 
 variable "sg_tags" {
-    type = map(string)
+    type = map
     default = {
       Name = "allow_ssh"
       project   = "Expenses"
       terraform = "True"
       environment   =   "dev"
     }
+  
+}
+
+# r53 variables
+variable "zone_id" {
+    type = string
+    default = "Z10475912BY0KPKZHDXZ4"
+  
+}
+
+variable "domain_name" {
+    type = string
+    default = "expensesnote.site"
   
 }
