@@ -1,6 +1,7 @@
-data "aws_ami" "ami_id" {
+data "aws_ami" "id_ami" {
+
     most_recent      = true
-    owners           = ["992382637716"]
+    owners           = ["973714476881"]
 
     filter {
         name   = "name"
@@ -17,6 +18,10 @@ data "aws_ami" "ami_id" {
         values = ["hvm"]
     }
  
+}
+
+data "aws_vpc" "default_vpc" {
+        default = true
 }
 
 
