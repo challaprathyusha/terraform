@@ -1,9 +1,9 @@
 resource "aws_instance" "instance" {
     ami = data.aws_ami.id_ami.id
-    vpc_security_group_ids = [ "sg-0980121946812cd77" ]
+    vpc_security_group_ids = [ "sg-04d73a14b382d203a" ]
     instance_type = "t2.micro"
     tags = {
-         Name = "data-source-practice"
+         Name = "ansible"
     }
   
 }

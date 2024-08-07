@@ -24,4 +24,6 @@ data "aws_vpc" "default_vpc" {
         default = true
 }
 
-
+data "aws_route53_zone" "zone_id" {
+        name = "expensesnote.site"
+}

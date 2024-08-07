@@ -4,7 +4,7 @@ variable "instance_names" {
     default = {
         frontend    =   "t2.micro"
         backend =   "t2.micro"
-        db  =   "t3.micro"
+        db  =   "t2.micro"
     }
 }
 
@@ -26,7 +26,7 @@ variable "sg_name" {
 
 variable "sg_desc" {
     type = string
-    default = "Allow ssh inbound traffic and all outbound traffic"
+    default = "Allow all inbound traffic and all outbound traffic"
   
 }
 
@@ -60,12 +60,6 @@ variable "sg_tags" {
 }
 
 # r53 variables
-variable "zone_id" {
-    type = string
-    default = "Z10475912BY0KPKZHDXZ4"
-  
-}
-
 variable "domain_name" {
     type = string
     default = "expensesnote.site"
